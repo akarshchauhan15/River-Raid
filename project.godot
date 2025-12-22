@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="River Raid"
+run/main_scene="uid://cp7tbdmlq1n36"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [display]

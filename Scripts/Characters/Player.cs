@@ -1,16 +1,17 @@
-using Godot;
 using System;
+using Godot;
 
 public partial class Player : CharacterBody2D
 {
     float MaxVelocity = 700;
-    float Acceleration = 2500;
-    float Friction = 1600;
+    float MinVelocity = 300;
+    Vector2 Acceleration = new(2500, 500);
+    Vector2 Friction = new(1600, 2500);
 
     public override void _Ready()
     {
+        Velocity = new(0, 0);
     }
-
     public override void _PhysicsProcess(double delta)
     {
         CheckMovement(delta);
@@ -23,18 +24,28 @@ public partial class Player : CharacterBody2D
             Shoot();
         }
     }
-
     private void CheckMovement(double delta)
     {
         Vector2 Direction;
 
         Direction = Input.GetVector("Left", "Right", "Up", "Down");
 
+        //Horizontal Velocity
         if (Direction.X != 0)
-        Velocity = Velocity.MoveToward(new Vector2(Direction.X, Velocity.Y) * MaxVelocity, Acceleration *  (float) delta);
-
+            Velocity = Velocity.MoveToward(new Vector2(Direction.X  * MaxVelocity, Velocity.Y), Acceleration.X *  (float) delta);
         else
-        Velocity = Velocity.MoveToward(new Vector2(0, Velocity.Y), Friction * (float) delta);
+            Velocity = Velocity.MoveToward(new Vector2(0, Velocity.Y), Friction.X * (float) delta);
+
+        /*//Vertical Velocity
+        if (Direction.Y < 0)
+            Velocity = Velocity.MoveToward(new Vector2(Velocity.X, Direction.Y * MaxVelocity), Acceleration.Y * (float) delta);
+        else if (Direction.Y > 0)
+            Velocity = Velocity.MoveToward(new Vector2(Velocity.X, Direction.Y * MinVelocity), Acceleration.Y * (float) delta);
+*/
+        if (Direction.Y < 0)
+            BaseMapComponent.Speed = Mathf.MoveToward(BaseMapComponent.Speed, MaxVelocity, Mathf.Abs(Direction.Y) * Acceleration.Y * (float) delta);
+        else if (Direction.Y > 0)
+            BaseMapComponent.Speed = Mathf.MoveToward(BaseMapComponent.Speed, MinVelocity, Mathf.Abs(Direction.Y) * Acceleration.Y * (float) delta);
 
         MoveAndSlide();
     }

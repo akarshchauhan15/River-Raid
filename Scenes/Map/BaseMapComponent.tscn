@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://yaf7kqv7prr3"]
+[gd_scene load_steps=6 format=3 uid="uid://yaf7kqv7prr3"]
 
+[ext_resource type="Script" uid="uid://dysd272kkjxvg" path="res://Scripts/Map/BaseMapComponent.cs" id="1_u1ei7"]
 [ext_resource type="Texture2D" uid="uid://ccnvet5hm61p5" path="res://Assets/Art/Exported/Grass.png" id="1_yf4yu"]
 [ext_resource type="Texture2D" uid="uid://ba8h38d6xj8ks" path="res://Assets/Art/Exported/Water.png" id="2_m7oeb"]
 
@@ -21,6 +22,7 @@ tile_size = Vector2i(30, 30)
 sources/0 = SubResource("TileSetAtlasSource_u1ei7")
 
 [node name="BaseMapComponent" type="Node2D"]
+script = ExtResource("1_u1ei7")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_repeat = 2
@@ -28,8 +30,13 @@ position = Vector2(640, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("1_yf4yu")
 region_enabled = true
-region_rect = Rect2(0, 0, 640, 360)
+region_rect = Rect2(-5, 0, 640, 360)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(10, 0)
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_kmyrt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, 8)
+rect = Rect2(0, -8, 1280, 8)

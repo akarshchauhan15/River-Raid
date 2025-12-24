@@ -17,7 +17,7 @@ public partial class BaseMapComponent : Node2D
     }
     private void OnExitedFromScreen()
     {
-        GetNode<Playground>("../../").SpawnModularLevelComponent();
+        GetNode<Playground>("../../").SpawnModularLevelComponent(Position);
         QueueFree();
     }
 }

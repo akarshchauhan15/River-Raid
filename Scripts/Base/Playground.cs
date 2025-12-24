@@ -18,10 +18,10 @@ public partial class Playground : Node2D
         LevelContainer = GetNode<Node2D>("Levels");
         LoadLevels();
     }
-    public void SpawnModularLevelComponent()
+    public void SpawnModularLevelComponent(Vector2 SacrificedPosition)
     {
         Node2D MapComponent = ModularLevelScenes[0].Instantiate<Node2D>();
-        MapComponent.Position = new Vector2(0, -719);
+        MapComponent.Position = new Vector2(0, SacrificedPosition.Y - 720 * 3);
         LevelContainer.AddChild(MapComponent);
     }
     private void LoadLevels()

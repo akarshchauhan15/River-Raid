@@ -36,12 +36,6 @@ public partial class Player : CharacterBody2D
         else
             Velocity = Velocity.MoveToward(new Vector2(0, Velocity.Y), Friction.X * (float) delta);
 
-        /*//Vertical Velocity
-        if (Direction.Y < 0)
-            Velocity = Velocity.MoveToward(new Vector2(Velocity.X, Direction.Y * MaxVelocity), Acceleration.Y * (float) delta);
-        else if (Direction.Y > 0)
-            Velocity = Velocity.MoveToward(new Vector2(Velocity.X, Direction.Y * MinVelocity), Acceleration.Y * (float) delta);
-*/
         if (Direction.Y < 0)
             BaseMapComponent.Speed = Mathf.MoveToward(BaseMapComponent.Speed, MaxVelocity, Mathf.Abs(Direction.Y) * Acceleration.Y * (float) delta);
         else if (Direction.Y > 0)

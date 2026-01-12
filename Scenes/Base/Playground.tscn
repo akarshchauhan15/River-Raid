@@ -1,21 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2lmq0c7rqqxp"]
+[gd_scene load_steps=6 format=3 uid="uid://b2lmq0c7rqqxp"]
 
 [ext_resource type="Script" uid="uid://b83rcmv3uv5yr" path="res://Scripts/Base/Playground.cs" id="1_27kmo"]
-[ext_resource type="PackedScene" uid="uid://cxlmuh2lyfm15" path="res://Scenes/Map/Basic1.tscn" id="2_6qj1y"]
 [ext_resource type="PackedScene" uid="uid://e3gha282lp5m" path="res://Scenes/Characters/Player.tscn" id="2_o0c3l"]
+[ext_resource type="PackedScene" uid="uid://ck1koutreiit4" path="res://Scenes/Map/Centre.tscn" id="2_q1vot"]
+[ext_resource type="PackedScene" uid="uid://npabx5ogx7a4" path="res://Scenes/Map/CentreIsland.tscn" id="4_jg8fe"]
+[ext_resource type="PackedScene" uid="uid://cyrd7my3bd3mu" path="res://Scenes/Map/CentreToRight.tscn" id="5_pkvjg"]
 
 [node name="Playground" type="Node2D"]
 script = ExtResource("1_27kmo")
 
 [node name="Levels" type="Node2D" parent="."]
 
-[node name="Basic1" parent="Levels" instance=ExtResource("2_6qj1y")]
-
-[node name="Basic2" parent="Levels" instance=ExtResource("2_6qj1y")]
+[node name="BaseMapComponent" parent="Levels" instance=ExtResource("4_jg8fe")]
 position = Vector2(0, -720)
 
-[node name="Basic3" parent="Levels" instance=ExtResource("2_6qj1y")]
+[node name="BaseMapComponent2" parent="Levels" instance=ExtResource("5_pkvjg")]
 position = Vector2(0, -1440)
+
+[node name="Basic1" parent="Levels" instance=ExtResource("2_q1vot")]
 
 [node name="Player" parent="." instance=ExtResource("2_o0c3l")]
 position = Vector2(640, 515)

@@ -1,14 +1,10 @@
 using Godot;
 using Godot.Collections;
+using System;
 
 public partial class BaseMapDefaults : Node
 {
-    public static readonly string[] ModularLevelNames = [
-        "Centre",
-        "CentreToRight",
-        "CentreToLeft",
-        "CentreIsland"
-    ];
+
     public static readonly Array<PackedScene> ModularLevelScenes = [];
 
     public enum ModularLevelNamesEnum
@@ -16,11 +12,17 @@ public partial class BaseMapDefaults : Node
         Centre,
         CentreToRight,
         CentreToLeft,
-        CentreIsland
+        CentreIsland,
+        Right,
+        RightToCentre,
+        RightIsland,
+        Left,
+        LeftToCentre,
+        LeftIsland,
     }
     public override void _Ready()
     {
-        foreach (string Address in ModularLevelNames)
+        foreach (string Address in Enum.GetNames(typeof(ModularLevelNamesEnum)))
         {
             ModularLevelScenes.Add(ResourceLoader.Load<PackedScene>($"res://Scenes/Map/{Address}.tscn"));
         }

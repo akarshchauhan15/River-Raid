@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b2lmq0c7rqqxp" path="res://Scenes/Base/Playground.tscn" id="1_kqwn2"]
 [ext_resource type="PackedScene" uid="uid://djldwp87u6ooo" path="res://Scenes/Base/Hud.tscn" id="2_ginsy"]
 
-[node name="Main" type="CanvasLayer"]
+[node name="Main" type="Node"]
 
 [node name="Playground" parent="." instance=ExtResource("1_kqwn2")]
 

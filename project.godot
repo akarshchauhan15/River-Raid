@@ -13,7 +13,6 @@ config_version=5
 config/name="River Raid"
 run/main_scene="uid://cp7tbdmlq1n36"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -67,6 +66,14 @@ Down={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":1,"axis_value":1.0,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemies"
+2d_physics/layer_3="Projectiles"
+2d_physics/layer_4="Collectibles"
+2d_physics/layer_5="Walls"
 
 [rendering]
 

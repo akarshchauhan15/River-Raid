@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://e3gha282lp5m" path="res://Scenes/Characters/Player.tscn" id="2_o0c3l"]
 [ext_resource type="PackedScene" uid="uid://ck1koutreiit4" path="res://Scenes/Map/Centre.tscn" id="2_q1vot"]
 [ext_resource type="PackedScene" uid="uid://npabx5ogx7a4" path="res://Scenes/Map/CentreIsland.tscn" id="4_jg8fe"]
-[ext_resource type="Texture2D" uid="uid://dgqhl7aewsocw" path="res://Assets/Graphics/Exported/VignetteFilter.svg" id="5_q1vot"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_q1vot"]
 b = Vector2(0, 720)
@@ -43,11 +42,3 @@ collision_mask = 30
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
-
-[node name="VignetteFilter" type="TextureRect" parent="Camera" unique_id=142149499]
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
-texture = ExtResource("5_q1vot")
-expand_mode = 2

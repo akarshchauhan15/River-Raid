@@ -1,10 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp7tbdmlq1n36"]
+[gd_scene format=3 uid="uid://cp7tbdmlq1n36"]
 
 [ext_resource type="PackedScene" uid="uid://b2lmq0c7rqqxp" path="res://Scenes/Base/Playground.tscn" id="1_kqwn2"]
 [ext_resource type="PackedScene" uid="uid://djldwp87u6ooo" path="res://Scenes/Base/Hud.tscn" id="2_ginsy"]
+[ext_resource type="Texture2D" uid="uid://dgqhl7aewsocw" path="res://Assets/Graphics/Exported/VignetteFilter.svg" id="3_ginsy"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="CanvasLayer" unique_id=1474268483]
 
-[node name="Playground" parent="." instance=ExtResource("1_kqwn2")]
+[node name="Playground" parent="." unique_id=758183905 instance=ExtResource("1_kqwn2")]
 
-[node name="HUD" parent="." instance=ExtResource("2_ginsy")]
+[node name="PostProcess" type="CanvasLayer" parent="." unique_id=1235643492]
+
+[node name="VignetteFilter" type="TextureRect" parent="PostProcess" unique_id=303917724]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_ginsy")
+expand_mode = 2
+
+[node name="HUD" parent="." unique_id=991511937 instance=ExtResource("2_ginsy")]

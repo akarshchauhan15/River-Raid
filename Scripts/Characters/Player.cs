@@ -1,12 +1,13 @@
 using System;
 using Godot;
+using Godot.NativeInterop;
 
 public partial class Player : CharacterBody2D
 {
     Camera2D Camera;
 
-    Vector2 MaxVelocity = new(700, 400);
-    float MinVelocityY = 200;
+    Vector2 MaxVelocity = new(700, 500);
+    float MinVelocityY = 250;
     Vector2 Acceleration = new(2500, 400);
     Vector2 Friction = new(1600, 2400);
 
@@ -35,9 +36,10 @@ public partial class Player : CharacterBody2D
 
         Direction = Input.GetVector("Left", "Right", "Up", "Down");
 
-        //Horizontal Velocity
+        float HorizontalVelocityModifier = (BaseMapComponent.Speed + 300) / 800;
+
         if (Direction.X != 0)
-            Velocity = Velocity.MoveToward(new Vector2(Direction.X  * MaxVelocity.X, Velocity.Y), Acceleration.X *  (float) delta);
+            Velocity = Velocity.MoveToward(new Vector2(Direction.X  * MaxVelocity.X * HorizontalVelocityModifier, Velocity.Y),Acceleration.X *  (float) delta);
         else
             Velocity = Velocity.MoveToward(new Vector2(0, Velocity.Y), Friction.X * (float) delta);
 
@@ -51,7 +53,7 @@ public partial class Player : CharacterBody2D
     private void AlignCamera()
     {
         float NewPositionX = 640 + (GlobalPosition.X - 640) * 0.1f;
-        Camera.GlobalPosition = new(NewPositionX, Camera.GlobalPosition.Y);
+        Camera.GlobalPosition = new(NewPositionX, 360 - BaseMapComponent.Speed / 10);
     }
     private void Shoot()
     {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2lmq0c7rqqxp"]
+[gd_scene format=3 uid="uid://b2lmq0c7rqqxp"]
 
 [ext_resource type="Script" uid="uid://b83rcmv3uv5yr" path="res://Scripts/Base/Playground.cs" id="1_27kmo"]
 [ext_resource type="PackedScene" uid="uid://e3gha282lp5m" path="res://Scenes/Characters/Player.tscn" id="2_o0c3l"]
@@ -13,38 +13,38 @@ b = Vector2(0, 720)
 a = Vector2(1280, 0)
 b = Vector2(1280, 720)
 
-[node name="Playground" type="Node2D"]
+[node name="Playground" type="Node2D" unique_id=1446581663]
 script = ExtResource("1_27kmo")
 
-[node name="Levels" type="Node2D" parent="."]
+[node name="Levels" type="Node2D" parent="." unique_id=813626741]
 
-[node name="Centre" parent="Levels" instance=ExtResource("2_q1vot")]
+[node name="Centre" parent="Levels" unique_id=146130966 instance=ExtResource("2_q1vot")]
 position = Vector2(0, -1440)
 
-[node name="Basic1" parent="Levels" instance=ExtResource("2_q1vot")]
+[node name="Basic1" parent="Levels" unique_id=1164886481 instance=ExtResource("2_q1vot")]
 
-[node name="BaseMapComponent" parent="Levels" instance=ExtResource("4_jg8fe")]
+[node name="BaseMapComponent" parent="Levels" unique_id=1771049677 instance=ExtResource("4_jg8fe")]
 position = Vector2(0, -720)
 
-[node name="Boundaries" type="StaticBody2D" parent="."]
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=738659697]
 collision_layer = 16
 
-[node name="Left" type="CollisionShape2D" parent="Boundaries"]
+[node name="Left" type="CollisionShape2D" parent="Boundaries" unique_id=729808292]
 shape = SubResource("SegmentShape2D_q1vot")
 
-[node name="Right" type="CollisionShape2D" parent="Boundaries"]
+[node name="Right" type="CollisionShape2D" parent="Boundaries" unique_id=1810319494]
 shape = SubResource("SegmentShape2D_jg8fe")
 
-[node name="Player" parent="." instance=ExtResource("2_o0c3l")]
-position = Vector2(637, 563)
+[node name="Player" parent="." unique_id=525242302 instance=ExtResource("2_o0c3l")]
+position = Vector2(637, 560)
 collision_mask = 30
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=1596330317]
 position = Vector2(640, 360)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="VignetteFilter" type="TextureRect" parent="Camera"]
+[node name="VignetteFilter" type="TextureRect" parent="Camera" unique_id=142149499]
 offset_left = -640.0
 offset_top = -360.0
 offset_right = 640.0

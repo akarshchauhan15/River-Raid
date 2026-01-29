@@ -1,9 +1,205 @@
 [gd_scene format=3 uid="uid://djldwp87u6ooo"]
 
-[node name="HUD" type="Control"]
-layout_mode = 3
+[ext_resource type="Script" uid="uid://bb5vc30f3hu84" path="res://Scripts/Hud/Hud.cs" id="1_4e2uh"]
+[ext_resource type="Theme" uid="uid://cnyrdftintyi8" path="res://Resources/Themes/Minimal.theme" id="2_wgaer"]
+[ext_resource type="Script" uid="uid://dycbne5egu6sm" path="res://Scripts/Hud/ExitPanel.cs" id="3_lqnud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqnud"]
+bg_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywdxv"]
+bg_color = Color(0.23197299, 0.11773328, 0.11521783, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kccyi"]
+bg_color = Color(0.31957662, 0.17166555, 0.16649911, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4pvl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q87le"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1qau"]
+bg_color = Color(0.028259695, 0.19607237, 0.116988264, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbero"]
+bg_color = Color(0.06066157, 0.30442053, 0.19201672, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7wgx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7d0a"]
+
+[node name="HUD" type="CanvasLayer" unique_id=704814869]
+script = ExtResource("1_4e2uh")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=244626580]
+custom_minimum_size = Vector2(340, 0)
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -280.0
+offset_right = 400.0
+offset_bottom = -92.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="ButtonContainer" unique_id=1419724610]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="ButtonContainer" unique_id=1671323554]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+text = "OPTIONS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer" unique_id=1041076256]
+layout_mode = 2
+
+[node name="ScoresButton" type="Button" parent="ButtonContainer/HBoxContainer" unique_id=44653083]
+custom_minimum_size = Vector2(165.225, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wgaer")
+text = "SCORES"
+
+[node name="ExitButton" type="Button" parent="ButtonContainer/HBoxContainer" unique_id=1431273428]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wgaer")
+text = "EXIT"
+
+[node name="Header" type="Label" parent="." unique_id=846171662]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -540.0
+offset_top = 93.0
+offset_right = -101.0
+offset_bottom = 198.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 76
+text = "RETRO RAID"
+
+[node name="ColorRect" type="ColorRect" parent="Header" unique_id=1188745964]
+show_behind_parent = true
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -17.0
+offset_right = 13.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.09019608, 0.12156863, 0.18431373, 0.47058824)
+
+[node name="Header2" type="Label" parent="." unique_id=1797425564]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -533.0
+offset_top = 188.0
+offset_right = 32.0
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "A synthwave styled remake of River Raid by Activision"
+
+[node name="ExitPanel" type="Panel" parent="." unique_id=880016373]
+visible = false
+custom_minimum_size = Vector2(320, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lqnud")
+script = ExtResource("3_lqnud")
+
+[node name="ColorRect" type="ColorRect" parent="ExitPanel" unique_id=1636125725]
+modulate = Color(0, 0, 0, 0.15686275)
+show_behind_parent = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_top = -300.0
+offset_right = 480.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ExitPanel" unique_id=56262766]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.5
+offset_top = 16.0
+offset_right = 41.5
+offset_bottom = 39.0
+grow_horizontal = 2
+text = "Exit game?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExitPanel" unique_id=773062641]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -2.0
+offset_right = 72.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=761495388]
+visibility_layer = 2
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_ywdxv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ywdxv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kccyi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4pvl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q87le")
+text = "No"
+
+[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=1744469756]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1qau")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u1qau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbero")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7wgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x7d0a")
+text = "Yes"

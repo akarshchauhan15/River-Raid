@@ -38,6 +38,6 @@ public partial class Enemies : AnimatableBody2D
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
         NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
         NewBullet.Direction = GlobalPosition.DirectionTo(Player.GlobalPosition);
-        GetNode<Node>("%InGameSpawnedObjects/Bullets").AddChild(NewBullet);
+        GetNode<Node>("%InGameSpawnedObjects/Projectiles").AddChild(NewBullet);
     }
 }

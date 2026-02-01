@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b83rcmv3uv5yr" path="res://Scripts/Base/Playground.cs" id="1_27kmo"]
 [ext_resource type="PackedScene" uid="uid://e3gha282lp5m" path="res://Scenes/Characters/Player.tscn" id="2_o0c3l"]
 [ext_resource type="PackedScene" uid="uid://ck1koutreiit4" path="res://Scenes/Map/Centre.tscn" id="2_q1vot"]
+[ext_resource type="PackedScene" uid="uid://bv832pqfdkve7" path="res://Scenes/Characters/Enemies/Ship.tscn" id="3_q1vot"]
 [ext_resource type="PackedScene" uid="uid://npabx5ogx7a4" path="res://Scenes/Map/CentreIsland.tscn" id="4_jg8fe"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_q1vot"]
@@ -12,18 +13,29 @@ b = Vector2(0, 720)
 a = Vector2(1280, 0)
 b = Vector2(1280, 720)
 
-[node name="Playground" type="Node2D" unique_id=1446581663]
+[node name="Playground" type="Node2D" unique_id=1109740961]
 script = ExtResource("1_27kmo")
 
-[node name="Levels" type="Node2D" parent="." unique_id=813626741]
+[node name="InGameSpawnedObjects" type="Node2D" parent="." unique_id=813626741]
+unique_name_in_owner = true
+z_as_relative = false
 
-[node name="Centre" parent="Levels" unique_id=146130966 instance=ExtResource("2_q1vot")]
+[node name="LevelContainer" type="Node2D" parent="InGameSpawnedObjects" unique_id=2118313280]
+
+[node name="Centre" parent="InGameSpawnedObjects/LevelContainer" unique_id=146130966 instance=ExtResource("2_q1vot")]
 position = Vector2(0, -1440)
 
-[node name="Basic1" parent="Levels" unique_id=1164886481 instance=ExtResource("2_q1vot")]
+[node name="Ship" parent="InGameSpawnedObjects/LevelContainer/Centre" unique_id=1133445006 instance=ExtResource("3_q1vot")]
+position = Vector2(586, 324)
 
-[node name="BaseMapComponent" parent="Levels" unique_id=1771049677 instance=ExtResource("4_jg8fe")]
+[node name="Basic1" parent="InGameSpawnedObjects/LevelContainer" unique_id=1164886481 instance=ExtResource("2_q1vot")]
+
+[node name="BaseMapComponent" parent="InGameSpawnedObjects/LevelContainer" unique_id=1771049677 instance=ExtResource("4_jg8fe")]
 position = Vector2(0, -720)
+
+[node name="Enemies" type="Node2D" parent="InGameSpawnedObjects" unique_id=22902286]
+
+[node name="Projectiles" type="Node2D" parent="InGameSpawnedObjects" unique_id=1168689768]
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=738659697]
 collision_layer = 16
@@ -35,10 +47,12 @@ shape = SubResource("SegmentShape2D_q1vot")
 shape = SubResource("SegmentShape2D_jg8fe")
 
 [node name="Player" parent="." unique_id=525242302 instance=ExtResource("2_o0c3l")]
-position = Vector2(637, 560)
+unique_name_in_owner = true
+position = Vector2(640, 560)
 collision_mask = 30
 
-[node name="Camera" type="Camera2D" parent="." unique_id=1596330317]
+[node name="Camera" type="Camera2D" parent="." unique_id=799571054]
+unique_name_in_owner = true
 position = Vector2(640, 360)
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
+
+[node name="Timers" type="Node" parent="." unique_id=55083844]

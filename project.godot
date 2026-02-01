@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 BaseMapDefaults="*res://Scripts/Map/BaseMapDefaults.cs"
+ResourceBag="*uid://xj5fiky4d7he"
 
 [display]
 

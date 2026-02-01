@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b67qgkmesk40u"]
+
+[ext_resource type="Script" uid="uid://bpunyy3b6owl8" path="res://Resources/CustomNode/Slide.cs" id="1_ylyes"]
+
+[node name="Slide" type="Control" unique_id=685437201]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 111.0
+offset_bottom = 40.0
+script = ExtResource("1_ylyes")

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Hud : CanvasLayer
+public partial class StartMenu : Control
 {
     Button StartButton;
     Button OptionsButton;
@@ -15,7 +15,7 @@ public partial class Hud : CanvasLayer
         OptionsButton = GetNode<Button>("ButtonContainer/OptionsButton");
         ExitButton = GetNode<Button>("ButtonContainer/HBoxContainer/ExitButton");
 
-        ExitPanel = GetNode<Panel>("ExitPanel");
+        ExitPanel = GetNode<Panel>("../ExitPanel");
 
         StartButton.Pressed += StartGame;
         ExitButton.Pressed += ExitPanel.Show;

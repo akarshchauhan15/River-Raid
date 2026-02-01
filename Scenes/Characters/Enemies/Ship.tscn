@@ -1,17 +1,15 @@
 [gd_scene format=3 uid="uid://bv832pqfdkve7"]
 
 [ext_resource type="PackedScene" uid="uid://22wyhlra16dm" path="res://Scenes/Characters/Enemies/BaseEnemyScene.tscn" id="1_pptcy"]
-[ext_resource type="Texture2D" uid="uid://dofgkm4ccsmdv" path="res://Assets/Art/Exported/Ship.png" id="2_8hqrk"]
+[ext_resource type="Texture2D" uid="uid://dofgkm4ccsmdv" path="res://Assets/RasterArt/Exported/Ship.png" id="2_8hqrk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0lkf8"]
 size = Vector2(20, 54)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pptcy"]
-radius = 209.86186
+radius = 400.0
 
 [node name="Ship" unique_id=1133445006 instance=ExtResource("1_pptcy")]
-DetectionRadius = 400.0
-ShootingTimePeriod = 1.0
 
 [node name="Texture" parent="." index="0" unique_id=395674862]
 texture = ExtResource("2_8hqrk")
@@ -25,3 +23,6 @@ position = Vector2(0, 13)
 
 [node name="CollisionShape2D" parent="PlayerDetectionArea" parent_id_path=PackedInt32Array(1366844603) index="0" unique_id=435643344]
 shape = SubResource("CircleShape2D_pptcy")
+
+[node name="CooldownTimer" parent="." index="4" unique_id=1672952422]
+wait_time = 1.0

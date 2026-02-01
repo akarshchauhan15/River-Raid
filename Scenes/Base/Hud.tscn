@@ -1,8 +1,31 @@
 [gd_scene format=3 uid="uid://djldwp87u6ooo"]
 
-[ext_resource type="Script" uid="uid://bb5vc30f3hu84" path="res://Scripts/Hud/Hud.cs" id="1_4e2uh"]
+[ext_resource type="Script" uid="uid://1offuphp5o8v" path="res://Scripts/Hud/StartMenu.cs" id="1_ywdxv"]
 [ext_resource type="Theme" uid="uid://cnyrdftintyi8" path="res://Resources/Themes/Minimal.theme" id="2_wgaer"]
 [ext_resource type="Script" uid="uid://dycbne5egu6sm" path="res://Scripts/Hud/ExitPanel.cs" id="3_lqnud"]
+[ext_resource type="Script" uid="uid://bng5wusfysijk" path="res://Scripts/Hud/GameOverlay.cs" id="3_ywdxv"]
+[ext_resource type="Script" uid="uid://dabetad3vjnkp" path="res://Scripts/Hud/PauseMenu.cs" id="5_kccyi"]
+[ext_resource type="PackedScene" uid="uid://b67qgkmesk40u" path="res://Resources/CustomNode/Slide.tscn" id="6_v4pvl"]
+[ext_resource type="Script" uid="uid://2q3r3lahcni4" path="res://Scripts/Hud/MenuSlide.cs" id="7_nbero"]
+[ext_resource type="Texture2D" uid="uid://dcibkcxmkqp1q" path="res://Assets/VectorArt/Icons/Pause.svg" id="7_u1qau"]
+[ext_resource type="Texture2D" uid="uid://bic2w8hxeqv1b" path="res://Assets/VectorArt/Icons/Play.svg" id="8_nbero"]
+[ext_resource type="Texture2D" uid="uid://b0yjen5b0rw1g" path="res://Assets/VectorArt/Icons/Fullscreen.svg" id="10_x7d0a"]
+[ext_resource type="Texture2D" uid="uid://crlw0a4tvgn2h" path="res://Assets/VectorArt/Icons/Windowed.svg" id="11_p2ou8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q87le"]
+bg_color = Color(0.22264019, 0.21104774, 0.32104602, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.654232, 0.65423214, 0.6542318, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4pvl"]
+bg_color = Color(0.46474165, 0.47807044, 0.7284931, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqnud"]
 bg_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
@@ -10,24 +33,6 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywdxv"]
-bg_color = Color(0.23197299, 0.11773328, 0.11521783, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kccyi"]
-bg_color = Color(0.31957662, 0.17166555, 0.16649911, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4pvl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q87le"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1qau"]
 bg_color = Color(0.028259695, 0.19607237, 0.116988264, 1)
@@ -47,62 +52,71 @@ border_width_bottom = 1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7d0a"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywdxv"]
+bg_color = Color(0.23197299, 0.11773328, 0.11521783, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kccyi"]
+bg_color = Color(0.31957662, 0.17166555, 0.16649911, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4pvl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q87le"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7wgx"]
+bg_color = Color(0, 0, 0, 0.627451)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7d0a"]
+bg_color = Color(0.09019608, 0.14117648, 0.2, 0.7058824)
+
+[sub_resource type="InputEventAction" id="InputEventAction_nbero"]
+action = &"Pause"
+
+[sub_resource type="Shortcut" id="Shortcut_n7wgx"]
+events = [SubResource("InputEventAction_nbero")]
+
 [node name="HUD" type="CanvasLayer" unique_id=704814869]
-script = ExtResource("1_4e2uh")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="." unique_id=244626580]
-custom_minimum_size = Vector2(340, 0)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 100.0
-offset_top = -280.0
-offset_right = 400.0
-offset_bottom = -92.0
-grow_vertical = 0
+[node name="StartMenu" type="Control" parent="." unique_id=1325218576]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ywdxv")
 
-[node name="StartButton" type="Button" parent="ButtonContainer" unique_id=1419724610]
-custom_minimum_size = Vector2(200, 56)
-layout_mode = 2
-theme = ExtResource("2_wgaer")
-text = "START"
-
-[node name="OptionsButton" type="Button" parent="ButtonContainer" unique_id=1671323554]
-custom_minimum_size = Vector2(200, 56)
-layout_mode = 2
-theme = ExtResource("2_wgaer")
-text = "OPTIONS"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ButtonContainer" unique_id=1041076256]
-layout_mode = 2
-
-[node name="ScoresButton" type="Button" parent="ButtonContainer/HBoxContainer" unique_id=44653083]
-custom_minimum_size = Vector2(165.225, 56)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_wgaer")
-text = "SCORES"
-
-[node name="ExitButton" type="Button" parent="ButtonContainer/HBoxContainer" unique_id=1431273428]
-custom_minimum_size = Vector2(0, 56)
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_wgaer")
-text = "EXIT"
-
-[node name="Header" type="Label" parent="." unique_id=846171662]
+[node name="Header" type="Label" parent="StartMenu" unique_id=846171662]
+layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -540.0
+offset_left = 100.0
 offset_top = 93.0
-offset_right = -101.0
+offset_right = 539.0
 offset_bottom = 198.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 76
 text = "RETRO RAID"
 
-[node name="ColorRect" type="ColorRect" parent="Header" unique_id=1188745964]
+[node name="Subheader" type="Label" parent="StartMenu/Header" unique_id=1797425564]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.5
+offset_top = 95.0
+offset_right = 352.5
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 14
+text = "A synthwave styled remake of River Raid™ by Activision®"
+
+[node name="ColorRect" type="ColorRect" parent="StartMenu/Header" unique_id=1188745964]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -113,19 +127,63 @@ offset_right = 13.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.09019608, 0.12156863, 0.18431373, 0.47058824)
+color = Color(0.09019608, 0.12156863, 0.18431373, 0.627451)
 
-[node name="Header2" type="Label" parent="." unique_id=1797425564]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -533.0
-offset_top = 188.0
-offset_right = 32.0
-offset_bottom = 208.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 14
-text = "A synthwave styled remake of River Raid by Activision"
+[node name="ButtonContainer" type="VBoxContainer" parent="StartMenu" unique_id=244626580]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 440.0
+offset_right = 440.0
+offset_bottom = 628.0
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="StartMenu/ButtonContainer" unique_id=1419724610]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+text = "START"
+
+[node name="OptionsButton" type="Button" parent="StartMenu/ButtonContainer" unique_id=1671323554]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+text = "OPTIONS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenu/ButtonContainer" unique_id=1041076256]
+layout_mode = 2
+
+[node name="ScoresButton" type="Button" parent="StartMenu/ButtonContainer/HBoxContainer" unique_id=44653083]
+custom_minimum_size = Vector2(165.225, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wgaer")
+text = "SCORES"
+
+[node name="ExitButton" type="Button" parent="StartMenu/ButtonContainer/HBoxContainer" unique_id=1431273428]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wgaer")
+text = "EXIT"
+
+[node name="GameOverlay" type="Control" parent="." unique_id=1399946451]
+modulate = Color(1, 1, 1, 0.627451)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_ywdxv")
+
+[node name="FuelMeter" type="ProgressBar" parent="GameOverlay" unique_id=2010502602]
+layout_mode = 0
+offset_top = 693.0
+offset_right = 132.0
+offset_bottom = 720.0
+theme_override_styles/background = SubResource("StyleBoxFlat_q87le")
+theme_override_styles/fill = SubResource("StyleBoxFlat_v4pvl")
+value = 50.0
 
 [node name="ExitPanel" type="Panel" parent="." unique_id=880016373]
 visible = false
@@ -141,7 +199,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_lqnud")
 script = ExtResource("3_lqnud")
 
 [node name="ColorRect" type="ColorRect" parent="ExitPanel" unique_id=1636125725]
-modulate = Color(0, 0, 0, 0.15686275)
 show_behind_parent = true
 custom_minimum_size = Vector2(1280, 720)
 layout_mode = 1
@@ -154,6 +211,7 @@ offset_right = 480.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
 
 [node name="Label" type="Label" parent="ExitPanel" unique_id=56262766]
 layout_mode = 1
@@ -183,6 +241,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=1744469756]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_u1qau")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u1qau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nbero")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7wgx")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_x7d0a")
+text = "Yes"
+
 [node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=761495388]
 visibility_layer = 2
 layout_mode = 2
@@ -194,12 +262,134 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4pvl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_q87le")
 text = "No"
 
-[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=1744469756]
+[node name="PauseMenu" type="Panel" parent="." unique_id=695202549]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_n7wgx")
+script = ExtResource("5_kccyi")
+
+[node name="Label" type="Label" parent="PauseMenu" unique_id=1296915906]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -267.0
+offset_right = 393.0
+offset_bottom = -162.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 76
+text = "PAUSED"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu" unique_id=586287917]
+custom_minimum_size = Vector2(340, 0)
+layout_mode = 1
+offset_left = 100.0
+offset_top = 440.0
+offset_right = 440.0
+offset_bottom = 628.0
+metadata/_edit_group_ = true
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/ButtonContainer" unique_id=1385167196]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "RESUME"
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/ButtonContainer" unique_id=1554121887]
+custom_minimum_size = Vector2(200, 56)
+layout_mode = 2
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "OPTIONS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/ButtonContainer" unique_id=613552045]
+layout_mode = 2
+
+[node name="ScoresButton" type="Button" parent="PauseMenu/ButtonContainer/HBoxContainer" unique_id=299069698]
+custom_minimum_size = Vector2(165.225, 56)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_u1qau")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u1qau")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nbero")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7wgx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_x7d0a")
-text = "Yes"
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "SCORES"
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/ButtonContainer/HBoxContainer" unique_id=1834735924]
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "MAIN MENU"
+
+[node name="MenuSlide" parent="." unique_id=685437201 instance=ExtResource("6_v4pvl")]
+process_mode = 3
+offset_left = -63.0
+offset_right = 23.0
+offset_bottom = 720.0
+script = ExtResource("7_nbero")
+Slide_Direction = 1
+AppearTransition = 4
+HideTransition = 4
+
+[node name="ColorRect" type="Panel" parent="MenuSlide" unique_id=520869189]
+layout_mode = 1
+offset_right = 63.0
+offset_bottom = 720.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7d0a")
+
+[node name="PauseButton" type="TextureButton" parent="MenuSlide/ColorRect" unique_id=380464060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -19.375
+offset_right = 19.5
+offset_bottom = 19.375
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource("Shortcut_n7wgx")
+texture_normal = ExtResource("7_u1qau")
+texture_pressed = ExtResource("8_nbero")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="FullscreenButton" type="TextureButton" parent="MenuSlide/ColorRect" unique_id=10439694]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.5
+offset_top = -345.0
+offset_right = 19.5
+offset_bottom = -306.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+toggle_mode = true
+action_mode = 0
+shortcut = SubResource("Shortcut_n7wgx")
+texture_normal = ExtResource("10_x7d0a")
+texture_pressed = ExtResource("11_p2ou8")
+ignore_texture_size = true
+stretch_mode = 5

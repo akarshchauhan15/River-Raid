@@ -12,6 +12,6 @@ public partial class ExitPanel : Panel
         NoButton = GetNode<Button>("HBoxContainer/NoButton");
 
         NoButton.Pressed += Hide;
-        YesButton.Pressed += QueueFree;
+        YesButton.Pressed += () => GetTree().Quit();
     }
 }

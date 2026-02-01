@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://yaf7kqv7prr3"]
+[gd_scene format=3 uid="uid://yaf7kqv7prr3"]
 
 [ext_resource type="Script" uid="uid://dysd272kkjxvg" path="res://Scripts/Map/BaseMapComponent.cs" id="1_u1ei7"]
-[ext_resource type="Texture2D" uid="uid://ccnvet5hm61p5" path="res://Assets/Art/Exported/Grass.png" id="1_yf4yu"]
-[ext_resource type="Texture2D" uid="uid://ba8h38d6xj8ks" path="res://Assets/Art/Exported/Water.png" id="2_m7oeb"]
+[ext_resource type="Texture2D" uid="uid://ccnvet5hm61p5" path="res://Assets/RasterArt/Exported/Grass.png" id="1_yf4yu"]
+[ext_resource type="Texture2D" uid="uid://ba8h38d6xj8ks" path="res://Assets/RasterArt/Exported/Water.png" id="2_m7oeb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1ei7"]
 texture = ExtResource("2_m7oeb")

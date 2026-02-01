@@ -1,6 +1,5 @@
 using Godot;
 using System;
-[Tool]
 
 public partial class Enemies : AnimatableBody2D
 {
@@ -38,6 +37,7 @@ public partial class Enemies : AnimatableBody2D
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
         NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
         NewBullet.Direction = GlobalPosition.DirectionTo(Player.GlobalPosition);
+        NewBullet.SetCollisionMaskValue(2, false);
         GetNode<Node>("%InGameSpawnedObjects/Projectiles").AddChild(NewBullet);
     }
 }

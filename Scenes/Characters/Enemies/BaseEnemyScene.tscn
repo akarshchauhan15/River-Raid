@@ -6,7 +6,6 @@
 radius = 200.0
 
 [node name="BaseEnemyScene" type="AnimatableBody2D" unique_id=1133445006]
-position = Vector2(0, -1)
 collision_layer = 2
 collision_mask = 5
 sync_to_physics = false

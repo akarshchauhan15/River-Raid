@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cej1dungx3xsx"
-path="res://.godot/imported/PlayerAmbianceLight.svg-5d12acab2038a0277fb7ba141506e26a.ctex"
+uid="uid://ccnvet5hm61p5"
+path="res://.godot/imported/Grass.png-9220d61eb3cd05c3deb66a752e95b9ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Exported/PlayerAmbianceLight.svg"
-dest_files=["res://.godot/imported/PlayerAmbianceLight.svg-5d12acab2038a0277fb7ba141506e26a.ctex"]
+source_file="res://Assets/RasterArt/Exported/Grass.png"
+dest_files=["res://.godot/imported/Grass.png-9220d61eb3cd05c3deb66a752e95b9ae.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

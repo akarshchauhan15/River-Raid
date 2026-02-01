@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2jowgpm7ldru"
-path="res://.godot/imported/Bullet.png-9a160a76a0fa1f39c95bfc10a0ff1c61.ctex"
+uid="uid://crlw0a4tvgn2h"
+path="res://.godot/imported/Windowed.svg-e62c86d9774893b74c1718ddc9d58452.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Exported/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9a160a76a0fa1f39c95bfc10a0ff1c61.ctex"]
+source_file="res://Assets/VectorArt/Icons/Windowed.svg"
+dest_files=["res://.godot/imported/Windowed.svg-e62c86d9774893b74c1718ddc9d58452.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba8h38d6xj8ks"
-path="res://.godot/imported/Water.png-5a597fdab9fef872cddf89b581cd05f7.ctex"
+uid="uid://dgqhl7aewsocw"
+path="res://.godot/imported/VignetteFilter.svg-674e646b4013eb301839e738e255044c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Exported/Water.png"
-dest_files=["res://.godot/imported/Water.png-5a597fdab9fef872cddf89b581cd05f7.ctex"]
+source_file="res://Assets/VectorArt/Graphics/VignetteFilter.svg"
+dest_files=["res://.godot/imported/VignetteFilter.svg-674e646b4013eb301839e738e255044c.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

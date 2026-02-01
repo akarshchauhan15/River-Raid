@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgqhl7aewsocw"
-path="res://.godot/imported/VignetteFilter.svg-686fe85839cf787aeb5f3e1a7c914d1a.ctex"
+uid="uid://dofgkm4ccsmdv"
+path="res://.godot/imported/Ship.png-074fba3bee44d56948282ed8a02b2dca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Exported/VignetteFilter.svg"
-dest_files=["res://.godot/imported/VignetteFilter.svg-686fe85839cf787aeb5f3e1a7c914d1a.ctex"]
+source_file="res://Assets/RasterArt/Exported/Ship.png"
+dest_files=["res://.godot/imported/Ship.png-074fba3bee44d56948282ed8a02b2dca.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

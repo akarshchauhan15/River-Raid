@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdpeeg4dpw071"
-path="res://.godot/imported/PlayerAmbianceLight.svg-57ee5a223a9c7068789e07c4d2f9d66e.ctex"
+uid="uid://bdf0quf2hamhx"
+path="res://.godot/imported/Bridge.png-ac65786eeabffdcf6b895d3a54de8d07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Graphics/Source/PlayerAmbianceLight.svg"
-dest_files=["res://.godot/imported/PlayerAmbianceLight.svg-57ee5a223a9c7068789e07c4d2f9d66e.ctex"]
+source_file="res://Assets/RasterArt/Exported/Bridge.png"
+dest_files=["res://.godot/imported/Bridge.png-ac65786eeabffdcf6b895d3a54de8d07.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

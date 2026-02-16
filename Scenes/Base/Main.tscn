@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://djldwp87u6ooo" path="res://Scenes/Base/Hud.tscn" id="2_ginsy"]
 [ext_resource type="Texture2D" uid="uid://dgqhl7aewsocw" path="res://Assets/VectorArt/Graphics/VignetteFilter.svg" id="3_ginsy"]
 
-[node name="Main" type="CanvasLayer" unique_id=1474268483]
+[node name="Main" type="Node2D" unique_id=654165556]
 
 [node name="Playground" parent="." unique_id=758183905 instance=ExtResource("1_kqwn2")]
 

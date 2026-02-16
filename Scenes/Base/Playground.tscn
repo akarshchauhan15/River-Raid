@@ -25,9 +25,6 @@ z_as_relative = false
 [node name="Centre" parent="InGameSpawnedObjects/LevelContainer" unique_id=146130966 instance=ExtResource("2_q1vot")]
 position = Vector2(0, -1440)
 
-[node name="Ship" parent="InGameSpawnedObjects/LevelContainer/Centre" unique_id=1133445006 instance=ExtResource("3_q1vot")]
-position = Vector2(586, 324)
-
 [node name="Basic1" parent="InGameSpawnedObjects/LevelContainer" unique_id=1164886481 instance=ExtResource("2_q1vot")]
 
 [node name="BaseMapComponent" parent="InGameSpawnedObjects/LevelContainer" unique_id=1771049677 instance=ExtResource("4_jg8fe")]
@@ -35,7 +32,16 @@ position = Vector2(0, -720)
 
 [node name="Enemies" type="Node2D" parent="InGameSpawnedObjects" unique_id=22902286]
 
-[node name="Projectiles" type="Node2D" parent="InGameSpawnedObjects" unique_id=1168689768]
+[node name="Ship" parent="InGameSpawnedObjects/Enemies" unique_id=1133445006 instance=ExtResource("3_q1vot")]
+position = Vector2(541, -1118)
+
+[node name="Ship2" parent="InGameSpawnedObjects/Enemies" unique_id=1625389637 instance=ExtResource("3_q1vot")]
+position = Vector2(828, -250)
+
+[node name="Ship3" parent="InGameSpawnedObjects/Enemies" unique_id=1206208129 instance=ExtResource("3_q1vot")]
+position = Vector2(564, -1813)
+
+[node name="Projectiles" type="Node2D" parent="." unique_id=141642842]
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=738659697]
 collision_layer = 16
@@ -49,7 +55,6 @@ shape = SubResource("SegmentShape2D_jg8fe")
 [node name="Player" parent="." unique_id=525242302 instance=ExtResource("2_o0c3l")]
 unique_name_in_owner = true
 position = Vector2(640, 560)
-collision_mask = 30
 
 [node name="Camera" type="Camera2D" parent="." unique_id=799571054]
 unique_name_in_owner = true

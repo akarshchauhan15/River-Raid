@@ -33,10 +33,10 @@ texture_region_size = Vector2i(30, 30)
 tile_size = Vector2i(30, 30)
 sources/0 = SubResource("TileSetAtlasSource_u1ei7")
 
-[node name="BaseMapComponent" type="Node2D"]
+[node name="BaseMapComponent" type="Node2D" unique_id=1253519410]
 script = ExtResource("1_u1ei7")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=104915237]
 texture_repeat = 2
 position = Vector2(640, 360)
 scale = Vector2(2, 2)
@@ -44,11 +44,15 @@ texture = ExtResource("1_yf4yu")
 region_enabled = true
 region_rect = Rect2(-5, 0, 700, 360)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=782468091]
 position = Vector2(10, 0)
 scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_kmyrt")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=296124791]
 position = Vector2(0, 8)
 rect = Rect2(0, -8, 1280, 8)
+
+[node name="SpawnPositions" type="Node2D" parent="." unique_id=1582920222]
+
+[node name="Ship" type="Node2D" parent="SpawnPositions" unique_id=423741574]

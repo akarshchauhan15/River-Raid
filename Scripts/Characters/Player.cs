@@ -33,7 +33,7 @@ public partial class Player : CharacterBody2D
     }
     public void OnHit()
     {
-
+        GD.Print("Player Hit");
     }
     private void CheckMovement(double delta)
     {
@@ -65,11 +65,12 @@ public partial class Player : CharacterBody2D
         CooldownTimer.Start();
 
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
-        NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
+        
         NewBullet.Direction = Vector2.Up;
         NewBullet.Speed += Mathf.Abs(Velocity.Y);
         NewBullet.SetCollisionMaskValue(1, false);
-        GetNode<Node2D>("%InGameSpawnedObjects/Projectiles").AddChild(NewBullet);
+        GetNode<Node2D>("../Projectiles").AddChild(NewBullet);
+        NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
     }
     private void UpdateStats(double delta)
     {

@@ -9,6 +9,7 @@ public partial class Bullet : Area2D
     public override void _Ready()
     {
         GetNode<Timer>("Timer").Timeout += Fall;
+        AreaEntered += OnCollision;
         BodyEntered += OnCollision;
     }
     public override void _Process(double delta)
@@ -28,5 +29,6 @@ public partial class Bullet : Area2D
     {
         QueueFree();
         if (Body.HasMethod("OnHit")) Body.Call("OnHit");
+        GD.Print("BulletHit");
     }
 }

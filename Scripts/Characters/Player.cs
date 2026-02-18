@@ -1,9 +1,11 @@
 using System;
 using Godot;
+using Godot.Collections;
 
 public partial class Player : CharacterBody2D
 {
     Camera2D Camera;
+    Area2D AutoAimZone;
     Timer CooldownTimer;
     Marker2D BulletSpawnLocation;
 
@@ -17,6 +19,7 @@ public partial class Player : CharacterBody2D
     public override void _Ready()
     {
         Camera = GetNode<Camera2D>("%Camera");
+        AutoAimZone = GetNode<Area2D>("AutoAimZone");
         CooldownTimer = GetNode<Timer>("CooldownTimer");
         BulletSpawnLocation = GetNode<Marker2D>("BulletSpawnLocation");
     }
@@ -65,12 +68,23 @@ public partial class Player : CharacterBody2D
         CooldownTimer.Start();
 
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
-        
-        NewBullet.Direction = Vector2.Up;
-        NewBullet.Speed += Mathf.Abs(Velocity.Y);
-        NewBullet.SetCollisionMaskValue(1, false);
+
         GetNode<Node2D>("../Projectiles").AddChild(NewBullet);
+        Array<Area2D> EnemiesInRange = AutoAimZone.GetOverlappingAreas();
+        if (EnemiesInRange.Count > 0)
+        {
+            //NewBullet.Direction = NewBullet.Direction.DirectionTo(EnemiesInRange[EnemiesInRange.Count - 1].GlobalPosition);
+            NewBullet.Direction = BulletSpawnLocation.GlobalPosition.DirectionTo(EnemiesInRange[EnemiesInRange.Count - 1].GlobalPosition);
+        }
+        else
+            NewBullet.Direction = Vector2.Up;
+
+        NewBullet.SetCollisionMaskValue(1, false);
+        
         NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
+        //NewBullet.Speed += Mathf.Abs(Velocity.Y);
+        
+
     }
     private void UpdateStats(double delta)
     {

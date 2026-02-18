@@ -29,6 +29,5 @@ public partial class Bullet : Area2D
     {
         QueueFree();
         if (Body.HasMethod("OnHit")) Body.Call("OnHit");
-        GD.Print("BulletHit");
     }
 }

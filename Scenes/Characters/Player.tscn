@@ -9,6 +9,9 @@ size = Vector2(38.5, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o5en2"]
 size = Vector2(10, 51)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pt4t"]
+size = Vector2(40, 145)
+
 [node name="Player" type="CharacterBody2D" unique_id=1114247732]
 collision_mask = 30
 motion_mode = 1
@@ -26,6 +29,14 @@ debug_color = Color(0, 0.6, 0.69803923, 0.101960786)
 position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_o5en2")
 debug_color = Color(0, 0.6, 0.7019608, 0.101960786)
+
+[node name="AutoAimZone" type="Area2D" parent="." unique_id=1669890731]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AutoAimZone" unique_id=534748179]
+position = Vector2(0, -123.5)
+shape = SubResource("RectangleShape2D_7pt4t")
 
 [node name="BulletSpawnLocation" type="Marker2D" parent="." unique_id=1550805675]
 position = Vector2(0, -27)

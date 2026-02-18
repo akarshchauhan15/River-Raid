@@ -4,12 +4,16 @@ using Godot.Collections;
 
 public partial class Player : CharacterBody2D
 {
+    [Signal]
+    public delegate void ScoreChangedEventHandler();
+
     Camera2D Camera;
     Area2D AutoAimZone;
     Timer CooldownTimer;
     Marker2D BulletSpawnLocation;
 
-    public static float Fuel = 100f;
+    public float Fuel = 100f;
+    public int Score = 0;
 
     Vector2 MaxVelocity = new(700, 500);
     float MinVelocityY = 250;
@@ -37,6 +41,11 @@ public partial class Player : CharacterBody2D
     public void OnHit()
     {
         GD.Print("Player Hit");
+    }
+    public void AddScore(int Value)
+    {
+        Score += Value;
+        EmitSignal(SignalName.ScoreChanged);
     }
     private void CheckMovement(double delta)
     {
@@ -69,22 +78,18 @@ public partial class Player : CharacterBody2D
 
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
 
-        GetNode<Node2D>("../Projectiles").AddChild(NewBullet);
+        GetNode<Node2D>("%InGameSpawnedObjects/Projectiles").AddChild(NewBullet);
         Array<Area2D> EnemiesInRange = AutoAimZone.GetOverlappingAreas();
-        if (EnemiesInRange.Count > 0)
-        {
-            //NewBullet.Direction = NewBullet.Direction.DirectionTo(EnemiesInRange[EnemiesInRange.Count - 1].GlobalPosition);
+
+        if (EnemiesInRange.Count > 0)     
             NewBullet.Direction = BulletSpawnLocation.GlobalPosition.DirectionTo(EnemiesInRange[EnemiesInRange.Count - 1].GlobalPosition);
-        }
         else
             NewBullet.Direction = Vector2.Up;
 
         NewBullet.SetCollisionMaskValue(1, false);
-        
-        NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
-        //NewBullet.Speed += Mathf.Abs(Velocity.Y);
-        
 
+        NewBullet.Speed += Mathf.Abs(Playground.SliderSpeed);
+        NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;  
     }
     private void UpdateStats(double delta)
     {

@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cnyrdftintyi8" path="res://Resources/Themes/Minimal.theme" id="2_wgaer"]
 [ext_resource type="Script" uid="uid://dycbne5egu6sm" path="res://Scripts/Hud/ExitPanel.cs" id="3_lqnud"]
 [ext_resource type="Script" uid="uid://bng5wusfysijk" path="res://Scripts/Hud/GameOverlay.cs" id="3_ywdxv"]
+[ext_resource type="FontFile" uid="uid://b5v15uldilm4" path="res://Assets/Fonts/Aldrich/Aldrich-Regular.ttf" id="4_p2ou8"]
 [ext_resource type="Script" uid="uid://dabetad3vjnkp" path="res://Scripts/Hud/PauseMenu.cs" id="5_kccyi"]
 [ext_resource type="PackedScene" uid="uid://b67qgkmesk40u" path="res://Resources/CustomNode/Slide.tscn" id="6_v4pvl"]
 [ext_resource type="Script" uid="uid://2q3r3lahcni4" path="res://Scripts/Hud/MenuSlide.cs" id="7_nbero"]
@@ -174,12 +175,24 @@ script = ExtResource("3_ywdxv")
 
 [node name="FuelMeter" type="ProgressBar" parent="GameOverlay" unique_id=2010502602]
 layout_mode = 0
-offset_top = 693.0
-offset_right = 132.0
-offset_bottom = 720.0
+offset_left = 8.0
+offset_top = 686.0
+offset_right = 140.0
+offset_bottom = 713.0
+theme_override_fonts/font = ExtResource("4_p2ou8")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/background = SubResource("StyleBoxFlat_q87le")
 theme_override_styles/fill = SubResource("StyleBoxFlat_v4pvl")
 value = 50.0
+
+[node name="ScoreLabel" type="Label" parent="GameOverlay" unique_id=1242918494]
+layout_mode = 1
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 107.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("4_p2ou8")
+theme_override_font_sizes/font_size = 24
 
 [node name="ExitPanel" type="Panel" parent="." unique_id=880016373]
 visible = false
@@ -288,7 +301,7 @@ layout_mode = 1
 offset_left = 100.0
 offset_top = 440.0
 offset_right = 440.0
-offset_bottom = 628.0
+offset_bottom = 616.0
 metadata/_edit_group_ = true
 
 [node name="ResumeButton" type="Button" parent="PauseMenu/ButtonContainer" unique_id=1385167196]

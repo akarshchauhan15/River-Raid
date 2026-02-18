@@ -13,6 +13,11 @@ b = Vector2(0, 720)
 a = Vector2(1280, 0)
 b = Vector2(1280, 720)
 
+[sub_resource type="Environment" id="Environment_q1vot"]
+glow_enabled = true
+glow_intensity = 1.25
+glow_blend_mode = 3
+
 [node name="Playground" type="Node2D" unique_id=1109740961]
 script = ExtResource("1_27kmo")
 
@@ -41,7 +46,7 @@ position = Vector2(828, -250)
 [node name="Ship3" parent="InGameSpawnedObjects/Enemies" unique_id=1206208129 instance=ExtResource("3_q1vot")]
 position = Vector2(564, -1813)
 
-[node name="Projectiles" type="Node2D" parent="." unique_id=141642842]
+[node name="Projectiles" type="Node2D" parent="InGameSpawnedObjects" unique_id=141642842]
 
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=738659697]
 collision_layer = 16
@@ -61,3 +66,6 @@ unique_name_in_owner = true
 position = Vector2(640, 360)
 
 [node name="Timers" type="Node" parent="." unique_id=55083844]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=350163319]
+environment = SubResource("Environment_q1vot")

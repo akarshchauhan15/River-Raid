@@ -8,6 +8,8 @@ public partial class Enemies : Area2D
     Player Player;
 
     [Export]
+    GameConstants.ScoreEnum EnemySpecificScoreEnum;
+    [Export]
     float DetectionRadius = 200.0f;
     [Export]
     float ShootingTimePeriod = 2.0f;
@@ -32,11 +34,14 @@ public partial class Enemies : Area2D
         Circle.Radius = DetectionRadius;
         GetNode<CollisionShape2D>("PlayerDetectionArea/CollisionShape2D").Shape = Circle;
 
-        //SetCollisionMaskValue(1, Flying);
+        GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D").Position = new Vector2(0, -DetectionRadius);
+
+        SetCollisionMaskValue(1, Flying);
     }
     public void OnHit()
     {
         QueueFree();
+        Player.AddScore(GameConstants.ScoreValues[EnemySpecificScoreEnum]);
     }
     private void OnCollisionWithPlayer(Node2D Body)
     {
@@ -47,9 +52,9 @@ public partial class Enemies : Area2D
     private void Shoot()
     {
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
-        NewBullet.Direction = GlobalPosition.DirectionTo(Player.GlobalPosition);
+        NewBullet.Direction = BulletSpawnLocation.GlobalPosition.DirectionTo(Player.GlobalPosition);
         NewBullet.SetCollisionMaskValue(2, false);
-        GetNode<Node>("../../../Projectiles").AddChild(NewBullet);
+        GetNode<Node>("../../Projectiles").AddChild(NewBullet);
         NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
     }
 }

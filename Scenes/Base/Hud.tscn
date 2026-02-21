@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b0yjen5b0rw1g" path="res://Assets/VectorArt/Icons/Fullscreen.svg" id="10_x7d0a"]
 [ext_resource type="Texture2D" uid="uid://crlw0a4tvgn2h" path="res://Assets/VectorArt/Icons/Windowed.svg" id="11_p2ou8"]
 [ext_resource type="Script" uid="uid://bcatb1mv5mgk1" path="res://Scripts/Hud/InfoPage.cs" id="13_2btik"]
+[ext_resource type="Texture2D" uid="uid://5dfyjpfgihmy" path="res://Assets/VectorArt/Icons/Exit.svg" id="13_60whd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q87le"]
 bg_color = Color(0.22264019, 0.21104774, 0.32104602, 1)
@@ -426,6 +427,27 @@ shortcut_feedback = false
 shortcut_in_tooltip = false
 texture_normal = ExtResource("7_u1qau")
 texture_pressed = ExtResource("8_nbero")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="MenuSlide/ColorRect" unique_id=834373944]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = 303.0
+offset_right = 25.5
+offset_bottom = 339.75
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 1
+shortcut_feedback = false
+shortcut_in_tooltip = false
+texture_normal = ExtResource("13_60whd")
 ignore_texture_size = true
 stretch_mode = 5
 

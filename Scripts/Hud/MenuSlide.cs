@@ -5,16 +5,22 @@ public partial class MenuSlide : Slide
 {
     TextureButton FullscreenButton;
     TextureButton PauseButton;
+    TextureButton ExitButton;
 
+    bool ExitPressedOnce = false;
     public override void _Ready()
     {
         base._Ready();
 
         FullscreenButton = GetNode<TextureButton>("ColorRect/FullscreenButton");
         PauseButton = GetNode<TextureButton>("ColorRect/PauseButton");
+        ExitButton = GetNode<TextureButton>("ColorRect/ExitButton");
 
         FullscreenButton.Toggled += OnFullscreenButtonToggled;
         PauseButton.Toggled += OnPauseButtonToggled;
+        ExitButton.Pressed += OnExitButtonPressed;
+
+        MotionCompleted += (bool Hidden) => { if (Hidden) ExitPressedOnce = false; };
     }
     public override void _Input(InputEvent @event)
     {
@@ -30,5 +36,10 @@ public partial class MenuSlide : Slide
         Control P = GetNode<PauseMenu>("../PauseMenu");
         GetTree().Paused = !GetTree().Paused;
         P.Visible = !P.Visible;
+    }
+    private void OnExitButtonPressed()
+    {
+        if (ExitPressedOnce) { GetTree().Quit(); return; }
+        ExitPressedOnce = true;
     }
 }

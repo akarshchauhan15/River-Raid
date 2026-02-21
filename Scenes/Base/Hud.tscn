@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bic2w8hxeqv1b" path="res://Assets/VectorArt/Icons/Play.svg" id="8_nbero"]
 [ext_resource type="Texture2D" uid="uid://b0yjen5b0rw1g" path="res://Assets/VectorArt/Icons/Fullscreen.svg" id="10_x7d0a"]
 [ext_resource type="Texture2D" uid="uid://crlw0a4tvgn2h" path="res://Assets/VectorArt/Icons/Windowed.svg" id="11_p2ou8"]
+[ext_resource type="Script" uid="uid://bcatb1mv5mgk1" path="res://Scripts/Hud/InfoPage.cs" id="13_2btik"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q87le"]
 bg_color = Color(0.22264019, 0.21104774, 0.32104602, 1)
@@ -19,7 +20,7 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.654232, 0.65423214, 0.6542318, 1)
+border_color = Color(0.7919991, 0.79199916, 0.7919991, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4pvl"]
 bg_color = Color(0.46474165, 0.47807044, 0.7284931, 1)
@@ -28,6 +29,9 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7wgx"]
+bg_color = Color(0, 0, 0, 0.627451)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lqnud"]
 bg_color = Color(0.16206557, 0.1620656, 0.16206548, 1)
 border_width_left = 1
@@ -35,49 +39,23 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u1qau"]
-bg_color = Color(0.028259695, 0.19607237, 0.116988264, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbero"]
-bg_color = Color(0.06066157, 0.30442053, 0.19201672, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n7wgx"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x7d0a"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywdxv"]
-bg_color = Color(0.23197299, 0.11773328, 0.11521783, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kccyi"]
-bg_color = Color(0.31957662, 0.17166555, 0.16649911, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4pvl"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q87le"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n7wgx"]
-bg_color = Color(0, 0, 0, 0.627451)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7d0a"]
 bg_color = Color(0.11130116, 0.13072228, 0.21835473, 0.78431374)
 
 [sub_resource type="Shortcut" id="Shortcut_n7wgx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2ou8"]
+bg_color = Color(0.106743075, 0.12243209, 0.18451592, 1)
+
+[sub_resource type="InputEventKey" id="InputEventKey_2btik"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="InputEventJoypadButton" id="InputEventJoypadButton_60whd"]
+button_index = 1
+
+[sub_resource type="Shortcut" id="Shortcut_mfj1d"]
+events = [SubResource("InputEventKey_2btik"), SubResource("InputEventJoypadButton_60whd")]
 
 [node name="HUD" type="CanvasLayer" unique_id=704814869]
 
@@ -194,83 +172,6 @@ offset_bottom = 42.0
 theme_override_fonts/font = ExtResource("4_p2ou8")
 theme_override_font_sizes/font_size = 24
 
-[node name="ExitPanel" type="Panel" parent="." unique_id=880016373]
-visible = false
-custom_minimum_size = Vector2(320, 120)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_lqnud")
-script = ExtResource("3_lqnud")
-
-[node name="ColorRect" type="ColorRect" parent="ExitPanel" unique_id=1636125725]
-show_behind_parent = true
-custom_minimum_size = Vector2(1280, 720)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -480.0
-offset_top = -300.0
-offset_right = 480.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.627451)
-
-[node name="Label" type="Label" parent="ExitPanel" unique_id=56262766]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -41.5
-offset_top = 16.0
-offset_right = 41.5
-offset_bottom = 39.0
-grow_horizontal = 2
-text = "Exit game?"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ExitPanel" unique_id=773062641]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -2.0
-offset_right = 72.5
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=1744469756]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_u1qau")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u1qau")
-theme_override_styles/hover = SubResource("StyleBoxFlat_nbero")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_n7wgx")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_x7d0a")
-text = "Yes"
-
-[node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=761495388]
-visibility_layer = 2
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_ywdxv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ywdxv")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kccyi")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_v4pvl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_q87le")
-text = "No"
-
 [node name="PauseMenu" type="Panel" parent="." unique_id=695202549]
 process_mode = 3
 visible = false
@@ -295,51 +196,173 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 76
 text = "PAUSED"
 
-[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu" unique_id=586287917]
-custom_minimum_size = Vector2(340, 0)
-layout_mode = 1
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenu" unique_id=1611225318]
+layout_mode = 0
 offset_left = 100.0
-offset_top = 440.0
-offset_right = 440.0
-offset_bottom = 616.0
-metadata/_edit_group_ = true
+offset_top = 358.0
+offset_right = 604.0
+offset_bottom = 582.0
 
-[node name="ResumeButton" type="Button" parent="PauseMenu/ButtonContainer" unique_id=1385167196]
-custom_minimum_size = Vector2(200, 56)
+[node name="Instantaneous" type="HBoxContainer" parent="PauseMenu/ButtonContainer" unique_id=493631076]
 layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/ButtonContainer/Instantaneous" unique_id=1385167196]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_wgaer")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "RESUME"
 
-[node name="OptionsButton" type="Button" parent="PauseMenu/ButtonContainer" unique_id=1554121887]
-custom_minimum_size = Vector2(200, 56)
+[node name="Preferences" type="HBoxContainer" parent="PauseMenu/ButtonContainer" unique_id=1862527397]
 layout_mode = 2
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/ButtonContainer/Preferences" unique_id=1554121887]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_wgaer")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "OPTIONS"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PauseMenu/ButtonContainer" unique_id=613552045]
+[node name="ScoresButton" type="Button" parent="PauseMenu/ButtonContainer/Preferences" unique_id=299069698]
+custom_minimum_size = Vector2(250, 72)
 layout_mode = 2
-
-[node name="ScoresButton" type="Button" parent="PauseMenu/ButtonContainer/HBoxContainer" unique_id=299069698]
-custom_minimum_size = Vector2(165.225, 56)
-layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_wgaer")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "SCORES"
 
-[node name="MainMenuButton" type="Button" parent="PauseMenu/ButtonContainer/HBoxContainer" unique_id=1834735924]
-custom_minimum_size = Vector2(0, 56)
+[node name="InfoButton" type="Button" parent="PauseMenu/ButtonContainer/Preferences" unique_id=1618565698]
+custom_minimum_size = Vector2(250, 72)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "INFO"
+
+[node name="Quit" type="HBoxContainer" parent="PauseMenu/ButtonContainer" unique_id=12140862]
+layout_mode = 2
+
+[node name="MainMenuButton" type="Button" parent="PauseMenu/ButtonContainer/Quit" unique_id=1834735924]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_wgaer")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "MAIN MENU"
+
+[node name="ExitButton" type="Button" parent="PauseMenu/ButtonContainer/Quit" unique_id=114763050]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "EXIT"
+
+[node name="ExitPanel" type="Panel" parent="." unique_id=880016373]
+process_mode = 3
+visible = false
+custom_minimum_size = Vector2(320, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -101.5
+offset_right = 304.0
+offset_bottom = 101.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lqnud")
+script = ExtResource("3_lqnud")
+
+[node name="ColorRect" type="ColorRect" parent="ExitPanel" unique_id=1636125725]
+show_behind_parent = true
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="Label" type="Label" parent="ExitPanel" unique_id=56262766]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 28.0
+offset_right = 43.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 18
+text = "Exit game?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExitPanel" unique_id=773062641]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.5
+offset_top = -2.0
+offset_right = 72.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=491177445]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "NO"
+
+[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=17732317]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "YES"
 
 [node name="MenuSlide" parent="." unique_id=685437201 instance=ExtResource("6_v4pvl")]
 process_mode = 3
@@ -405,3 +428,109 @@ texture_normal = ExtResource("7_u1qau")
 texture_pressed = ExtResource("8_nbero")
 ignore_texture_size = true
 stretch_mode = 5
+
+[node name="InfoPage" type="Panel" parent="." unique_id=797876973]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2ou8")
+script = ExtResource("13_2btik")
+
+[node name="Header" type="Label" parent="InfoPage" unique_id=1274235480]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 93.0
+offset_right = 850.0
+offset_bottom = 258.0
+theme_override_font_sizes/font_size = 120
+text = "RETRO RAID"
+
+[node name="Description" type="Label" parent="InfoPage" unique_id=1873826705]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 322.0
+offset_right = 756.0
+offset_bottom = 358.0
+theme_override_font_sizes/font_size = 24
+text = "This game was made as a part of 20 games challenge."
+
+[node name="RichTextLabel" type="RichTextLabel" parent="InfoPage" unique_id=2002964599]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 462.0
+offset_right = 301.0
+offset_bottom = 502.0
+theme_override_colors/font_outline_color = Color(0.38039216, 0.18431373, 0.43529412, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Based on [outline_size=6]RIVER RAID"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="InfoPage" unique_id=1611781393]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 414.0
+offset_right = 386.0
+offset_bottom = 454.0
+theme_override_colors/font_outline_color = Color(0.38039216, 0.18431373, 0.43529412, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Made by [outline_size=6]AKARSH CHAUHAN"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Using" type="Label" parent="InfoPage" unique_id=990193999]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 509.0
+offset_right = 126.0
+offset_bottom = 543.0
+theme_override_font_sizes/font_size = 24
+text = "Using"
+
+[node name="Tools" type="Label" parent="InfoPage" unique_id=585670014]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 509.0
+offset_right = 514.0
+offset_bottom = 639.0
+theme_override_colors/font_outline_color = Color(0.38242635, 0.1846978, 0.43647373, 1)
+theme_override_constants/line_spacing = -2
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "GODOT
+VISUAL STUDIO
+INKSCAPE
+LIBRESPRITE"
+
+[node name="Version" type="Label" parent="InfoPage" unique_id=801641615]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 680.0
+offset_right = 77.0
+offset_bottom = 716.0
+theme_override_font_sizes/font_size = 24
+text = "v0.0.0"
+
+[node name="BackButton" type="Button" parent="InfoPage" unique_id=1724037892]
+custom_minimum_size = Vector2(250, 72)
+layout_mode = 0
+offset_left = 983.0
+offset_top = 620.0
+offset_right = 1233.0
+offset_bottom = 692.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut = SubResource("Shortcut_mfj1d")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "BACK"

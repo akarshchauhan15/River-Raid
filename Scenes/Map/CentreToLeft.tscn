@@ -16,3 +16,9 @@ position = Vector2(276, 143)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnPositions/Ship" parent_id_path=PackedInt32Array(423741574) index="2" unique_id=461323128]
 position = Vector2(459, 368)
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions/Tank" parent_id_path=PackedInt32Array(1302202176) index="0" unique_id=1709622446]
+position = Vector2(224, 480)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPositions/Tank" parent_id_path=PackedInt32Array(1302202176) index="1" unique_id=1957763590]
+position = Vector2(721, 259)

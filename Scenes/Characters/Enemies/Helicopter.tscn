@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://de3bn4e6jn3dt"]
+
+[ext_resource type="PackedScene" uid="uid://22wyhlra16dm" path="res://Scenes/Characters/Enemies/BaseEnemyScene.tscn" id="1_5wdf3"]
+[ext_resource type="Texture2D" uid="uid://c27j1o346y4oj" path="res://Assets/RasterArt/Exported/Helicopter.png" id="2_rpg4l"]
+[ext_resource type="Texture2D" uid="uid://qdx66n3ldw1b" path="res://Assets/RasterArt/Exported/HelicopterBlade.png" id="3_ey88n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc73a"]
+atlas = ExtResource("3_ey88n")
+region = Rect2(0, 0, 30, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6pdm"]
+atlas = ExtResource("3_ey88n")
+region = Rect2(30, 0, 30, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_itrut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc73a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6pdm")
+}],
+"loop": true,
+"name": &"Rotate",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5wdf3"]
+size = Vector2(24, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpg4l"]
+size = Vector2(22, 4)
+
+[node name="BaseEnemyScene" unique_id=963257120 instance=ExtResource("1_5wdf3")]
+
+[node name="Texture" parent="." index="0" unique_id=395674862]
+texture = ExtResource("2_rpg4l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=1622614921]
+position = Vector2(-9, 0)
+sprite_frames = SubResource("SpriteFrames_itrut")
+animation = &"Rotate"
+autoplay = "Rotate"
+frame_progress = 0.14076878
+
+[node name="CollisionShape2D" parent="." index="3" unique_id=208896183]
+position = Vector2(-11, 0)
+shape = SubResource("RectangleShape2D_5wdf3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." index="4" unique_id=1488515990]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_rpg4l")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="8" unique_id=440847410]
+position = Vector2(-9, 0)
+rect = Rect2(-16, -15, 51, 30)

@@ -6,10 +6,12 @@ public partial class Player : CharacterBody2D
 {
     [Signal]
     public delegate void ScoreChangedEventHandler();
+    [Signal]
+    public delegate void ShotsFiredEventHandler();
 
     Camera2D Camera;
     Area2D AutoAimZone;
-    Timer CooldownTimer;
+    public Timer CooldownTimer;
     Marker2D BulletSpawnLocation;
 
     public float Fuel = 100f;
@@ -75,6 +77,7 @@ public partial class Player : CharacterBody2D
     private void Shoot()
     {
         CooldownTimer.Start();
+        EmitSignal(SignalName.ShotsFired);
 
         Bullet NewBullet = ResourceBag.BulletScene.Instantiate<Bullet>();
 
@@ -84,7 +87,7 @@ public partial class Player : CharacterBody2D
         if (EnemiesInRange.Count > 0)     
             NewBullet.Direction = BulletSpawnLocation.GlobalPosition.DirectionTo(EnemiesInRange[EnemiesInRange.Count - 1].GlobalPosition);
         else
-            NewBullet.Direction = Vector2.Up;
+            NewBullet.Direction = new Vector2(Velocity.X * 0.0001f, -1).Normalized();
 
         NewBullet.SetCollisionMaskValue(1, false);
 

@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="River Raid"
+config/name="Retro Raid"
 config/version="v0.1.0"
 run/main_scene="uid://cp7tbdmlq1n36"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
@@ -33,7 +33,7 @@ window/stretch/mode="canvas_items"
 
 [dotnet]
 
-project/assembly_name="River Raid"
+project/assembly_name="Retro Raid"
 
 [input]
 

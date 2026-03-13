@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c74w08hclnft4"]
+
+[ext_resource type="Texture2D" uid="uid://b74lsf38aub13" path="res://Assets/RasterArt/Exported/Pickable.png" id="1_a8dy4"]
+[ext_resource type="Script" uid="uid://bu5rriqyvg5v1" path="res://Scripts/Misc/Pickable.cs" id="1_anrdx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anrdx"]
+size = Vector2(16, 16)
+
+[node name="Pickable" type="Area2D" unique_id=974141798]
+collision_layer = 8
+script = ExtResource("1_anrdx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=595158025]
+shape = SubResource("RectangleShape2D_anrdx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=475383489]
+texture = ExtResource("1_a8dy4")
+hframes = 3

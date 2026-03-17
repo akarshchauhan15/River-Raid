@@ -49,6 +49,8 @@ position = Vector2(959, -28)
 
 [node name="Projectiles" type="Node2D" parent="InGameSpawnedObjects" unique_id=141642842]
 
+[node name="Pickables" type="Node2D" parent="InGameSpawnedObjects" unique_id=951645313]
+
 [node name="Boundaries" type="StaticBody2D" parent="." unique_id=738659697]
 collision_layer = 16
 

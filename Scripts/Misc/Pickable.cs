@@ -10,6 +10,10 @@ public partial class Pickable : Area2D
     public override void _Ready()
     {
         BodyEntered += OnPlayerEntered;
+    }
+    public void Initialize(PickableType Type)
+    { 
+        this.Type = Type;
         GetNode<Sprite2D>("Sprite2D").Frame = (int)Type;
     }
     private void OnPlayerEntered(Node2D Body)
@@ -18,7 +22,7 @@ public partial class Pickable : Area2D
         QueueFree();
 
         Player Player = Body as Player;
-        Player.EmitSignal(Player.SignalName.EventHappened, (int)Type);
+        Player.EmitSignal(Player.SignalName.Pickuped, (int)Type);
 
         switch (Type) 
         {

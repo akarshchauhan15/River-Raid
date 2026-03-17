@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
     [Signal]
     public delegate void ShotsFiredEventHandler();
     [Signal]
-    public delegate void EventHappenedEventHandler(int Type);
+    public delegate void PickupedEventHandler(int Type);
 
     Camera2D Camera;
     Area2D AutoAimZone;
@@ -45,7 +45,7 @@ public partial class Player : CharacterBody2D
     }
     public void OnHit()
     {
-        GD.Print("Player Hit");
+        Health -= 1;
     }
     public void AddScore(int Value)
     {

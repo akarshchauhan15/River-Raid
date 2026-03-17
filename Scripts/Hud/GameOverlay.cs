@@ -23,7 +23,7 @@ public partial class GameOverlay : Control
 
         Player.ScoreChanged += UpdateScore;
         Player.ShotsFired += StartCooldown;
-        Player.EventHappened += AddEventHappened;
+        Player.Pickuped += AddEventHappened;
     }
     public override void _Process(double delta)
     {

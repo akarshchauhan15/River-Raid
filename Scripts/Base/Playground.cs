@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Playground : Node2D
@@ -7,6 +8,7 @@ public partial class Playground : Node2D
     Node2D EnemyContainer;
     PackedScene NextMapPackedComponent;
 
+    Random Random = new();
     public static float SliderSpeed = 300.0f;
 
     public override void _Ready()
@@ -30,6 +32,10 @@ public partial class Playground : Node2D
 
         Enemies EnemyShip = ResourceBag.EnemyShipScene.Instantiate<Enemies>();
         Vector2 RefPosition = (Vector2)MapComponent.GetNode<Node2D>("SpawnPositions/Ship").GetChild(0).Get(Node2D.PropertyName.GlobalPosition);
+
+        int RandomInt = Random.Next(0,10);
+        if (RandomInt < 3)
+        EnemyShip.SpawnPickableOnFree = (Pickable.PickableType) RandomInt; 
         
         EnemyContainer.AddChild(EnemyShip);
         EnemyShip.GlobalPosition = RefPosition;

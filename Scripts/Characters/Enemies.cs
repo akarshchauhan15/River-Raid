@@ -18,6 +18,7 @@ public partial class Enemies : Area2D
     float FireInaccuracy = 0.2f;
     [Export]
     bool Flying = false;
+    public Pickable.PickableType? SpawnPickableOnFree = null;
 
     public override void _Ready()
     {
@@ -54,6 +55,14 @@ public partial class Enemies : Area2D
     {
         QueueFree();
         Player.AddScore(GameConstants.ScoreValues[EnemySpecificScoreEnum]);
+
+        if (SpawnPickableOnFree == null) return;
+
+        Pickable NewPickable = ResourceBag.PickableScene.Instantiate<Pickable>();
+        NewPickable.Initialize(SpawnPickableOnFree.Value);
+        //GetNode<Node2D>("../../Pickables").CallDeferred(Node2D.MethodName.AddChild.ToString(), NewPickable);
+        GetNode<Node2D>("../../Pickables").AddChild(NewPickable);
+        NewPickable.GlobalPosition = GlobalPosition;
     }
     private void OnCollisionWithPlayer(Node2D Body)
     {

@@ -57,12 +57,15 @@ public partial class Enemies : Area2D
         Player.AddScore(GameConstants.ScoreValues[EnemySpecificScoreEnum]);
 
         if (SpawnPickableOnFree == null) return;
-
+        AddPickable();
+    }
+    private void AddPickable()
+    {
         Pickable NewPickable = ResourceBag.PickableScene.Instantiate<Pickable>();
         NewPickable.Initialize(SpawnPickableOnFree.Value);
-        //GetNode<Node2D>("../../Pickables").CallDeferred(Node2D.MethodName.AddChild.ToString(), NewPickable);
-        GetNode<Node2D>("../../Pickables").AddChild(NewPickable);
-        NewPickable.GlobalPosition = GlobalPosition;
+
+        GetNode("../../Pickables").CallDeferred(Node2D.MethodName.AddChild.ToString(), NewPickable);
+        NewPickable.SetDeferred(Node2D.PropertyName.GlobalPosition, GlobalPosition);
     }
     private void OnCollisionWithPlayer(Node2D Body)
     {

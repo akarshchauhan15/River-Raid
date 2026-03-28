@@ -68,6 +68,12 @@ bg_color = Color(0.11130116, 0.13072228, 0.21835473, 0.78431374)
 
 [sub_resource type="Shortcut" id="Shortcut_n7wgx"]
 
+[sub_resource type="InputEventAction" id="InputEventAction_60whd"]
+action = &"Pause"
+
+[sub_resource type="Shortcut" id="Shortcut_ok6ej"]
+events = [SubResource("InputEventAction_60whd")]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2ou8"]
 bg_color = Color(0.106743075, 0.12243209, 0.18451592, 1)
 
@@ -483,6 +489,7 @@ focus_mode = 0
 mouse_filter = 1
 toggle_mode = true
 action_mode = 0
+shortcut = SubResource("Shortcut_ok6ej")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 texture_normal = ExtResource("7_u1qau")
@@ -543,9 +550,9 @@ text = "This game was made as a part of 20 games challenge."
 [node name="RichTextLabel" type="RichTextLabel" parent="InfoPage" unique_id=2002964599]
 layout_mode = 0
 offset_left = 61.0
-offset_top = 462.0
+offset_top = 400.0
 offset_right = 301.0
-offset_bottom = 502.0
+offset_bottom = 440.0
 theme_override_colors/font_outline_color = Color(0.38039216, 0.18431373, 0.43529412, 1)
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
@@ -554,41 +561,27 @@ fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="InfoPage" unique_id=1611781393]
-layout_mode = 0
-offset_left = 61.0
-offset_top = 414.0
-offset_right = 386.0
-offset_bottom = 454.0
-theme_override_colors/font_outline_color = Color(0.38039216, 0.18431373, 0.43529412, 1)
-theme_override_font_sizes/normal_font_size = 24
-bbcode_enabled = true
-text = "Made by [outline_size=6]AKARSH CHAUHAN"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
-
 [node name="Using" type="Label" parent="InfoPage" unique_id=990193999]
 layout_mode = 0
 offset_left = 61.0
-offset_top = 509.0
+offset_top = 447.0
 offset_right = 126.0
-offset_bottom = 543.0
+offset_bottom = 481.0
 theme_override_font_sizes/font_size = 24
 text = "Using"
 
 [node name="Tools" type="Label" parent="InfoPage" unique_id=585670014]
 layout_mode = 0
 offset_left = 135.0
-offset_top = 509.0
+offset_top = 447.0
 offset_right = 514.0
-offset_bottom = 639.0
+offset_bottom = 577.0
 theme_override_colors/font_outline_color = Color(0.38242635, 0.1846978, 0.43647373, 1)
 theme_override_constants/line_spacing = -2
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 24
 text = "GODOT
-VISUAL STUDIO
+VSCODIUM
 INKSCAPE
 LIBRESPRITE"
 

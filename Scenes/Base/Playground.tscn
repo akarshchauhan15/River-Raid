@@ -70,5 +70,9 @@ position = Vector2(640, 360)
 
 [node name="Timers" type="Node" parent="." unique_id=55083844]
 
+[node name="JetSpawnTimer" type="Timer" parent="Timers" unique_id=1887718099]
+wait_time = 10.0
+autostart = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=350163319]
 environment = SubResource("Environment_q1vot")

@@ -1,10 +1,12 @@
 using Godot;
+using Godot.Collections;
 using System;
 
 public partial class ResourceBag : Node
 {
     public static PackedScene BulletScene;
-    public static PackedScene EnemyShipScene;
+
+    public static Dictionary<string, PackedScene> EnemyScenes = new Dictionary<string, PackedScene>();
 
     public static PackedScene PickableScene;
 
@@ -15,7 +17,9 @@ public partial class ResourceBag : Node
     {
         BulletScene = ResourceLoader.Load<PackedScene>("res://Scenes/Misc/Bullet.tscn");
 
-        EnemyShipScene = ResourceLoader.Load<PackedScene>("res://Scenes/Characters/Enemies/Ship.tscn");
+        string[] EnemyNames = ["Ship", "Tank", "Helicopter", "Jet"];
+        foreach (string EnemyName in EnemyNames)
+            EnemyScenes.Add(EnemyName, ResourceLoader.Load<PackedScene>($"res://Scenes/Characters/Enemies/{EnemyName}.tscn"));
 
         PickableScene = ResourceLoader.Load<PackedScene>("res://Scenes/Misc/Pickable.tscn");
 

@@ -32,7 +32,7 @@ size = Vector2(24, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpg4l"]
 size = Vector2(22, 4)
 
-[node name="BaseEnemyScene" unique_id=963257120 instance=ExtResource("1_5wdf3")]
+[node name="Helicopter" unique_id=963257120 instance=ExtResource("1_5wdf3")]
 
 [node name="Texture" parent="." index="0" unique_id=395674862]
 texture = ExtResource("2_rpg4l")

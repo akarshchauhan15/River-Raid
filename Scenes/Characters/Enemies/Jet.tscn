@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://cpjr3ekiwkck5"]
+
+[ext_resource type="PackedScene" uid="uid://22wyhlra16dm" path="res://Scenes/Characters/Enemies/BaseEnemyScene.tscn" id="1_fxd2v"]
+[ext_resource type="Texture2D" uid="uid://cv27fgiswu3e6" path="res://Assets/RasterArt/Exported/Jet.png" id="2_biln5"]
+[ext_resource type="Script" uid="uid://nsqowuprawib" path="res://Scripts/Characters/Jet.cs" id="2_fnhew"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_biln5"]
+size = Vector2(38, 33)
+
+[node name="Jet" unique_id=963257120 instance=ExtResource("1_fxd2v")]
+script = ExtResource("2_fnhew")
+EnemySpecificScoreEnum = 3
+DetectionRadius = 0.0
+Flying = true
+
+[node name="Texture" parent="." index="0" unique_id=395674862]
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("2_biln5")
+flip_v = true
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=208896183]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_biln5")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="6" unique_id=440847410]
+position = Vector2(0, 3)
+rect = Rect2(-23, -24, 46, 42)

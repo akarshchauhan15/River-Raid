@@ -17,6 +17,8 @@ public partial class Playground : Node2D
         LevelContainer = GetNode<Node2D>("InGameSpawnedObjects/LevelContainer");
         EnemyContainer = GetNode<Node2D>("InGameSpawnedObjects/Enemies");
 
+        GetNode<Timer>("Timers/JetSpawnTimer").Timeout += SpawnEnemyJets;
+
         NextMapPackedComponent = BaseMapDefaults.ModularLevelScenes[0];
     }
     public override void _Process(double delta)
@@ -30,7 +32,7 @@ public partial class Playground : Node2D
         MapComponent.Position = new Vector2(0, SacrificedPosition.Y - 720 * 3);
         LevelContainer.AddChild(MapComponent);
 
-        Enemies EnemyShip = ResourceBag.EnemyShipScene.Instantiate<Enemies>();
+        Enemies EnemyShip = ResourceBag.EnemyScenes["Ship"].Instantiate<Enemies>();
         Vector2 RefPosition = (Vector2)MapComponent.GetNode<Node2D>("SpawnPositions/Ship").GetChild(0).Get(Node2D.PropertyName.GlobalPosition);
 
         int RandomInt = Random.Next(0,10);
@@ -42,5 +44,17 @@ public partial class Playground : Node2D
 
         BaseMapDefaults.ModularLevelNamesEnum NextMapEnum = MapComponent.NextModularLevels.PickRandom();
         NextMapPackedComponent =  BaseMapDefaults.ModularLevelScenes[(int)NextMapEnum];
+    }
+    private void SpawnEnemyJets()
+    {
+        int PositionX = 320 * Random.Next(1, 4) - 160;
+
+        for (int i=2; i>0; i--)
+        {
+            Enemies EnemyJet = ResourceBag.EnemyScenes["Jet"].Instantiate<Enemies>();
+            EnemyContainer.AddChild(EnemyJet);
+            EnemyJet.GlobalPosition = new Vector2(PositionX, -20);
+            PositionX += 320;
+        }
     }
 }

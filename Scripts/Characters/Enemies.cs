@@ -8,6 +8,9 @@ public partial class Enemies : Area2D
     Sprite2D TurretSprite;
     Player Player;
 
+    public Node Projectiles;
+    public Node Pickables;
+
     [Export]
     GameConstants.ScoreEnum EnemySpecificScoreEnum;
     [Export]
@@ -27,6 +30,11 @@ public partial class Enemies : Area2D
         TurretSprite = GetNode<Sprite2D>("Turret");
         Player = GetTree().Root.GetNode<Player>("Main/Playground/Player");
 
+        if (this is not Helicopter){
+            Projectiles = GetNodeOrNull("../../Pickables");
+            Pickables = GetNodeOrNull("../../Projectiles");
+        }
+
         BodyEntered += OnCollisionWithPlayer;
         GetNode<Area2D>("PlayerDetectionArea").BodyEntered += (Node2D Body) => { CallDeferred(Enemies.MethodName.Shoot); CooldownTimer.Start(); };
         GetNode<Area2D>("PlayerDetectionArea").BodyExited += (Node2D Body) => { CooldownTimer.Stop(); };
@@ -35,8 +43,8 @@ public partial class Enemies : Area2D
 
         CooldownTimer.WaitTime = ShootingTimePeriod;
 
-        CircleShape2D Circle = new CircleShape2D();
-        Circle.Radius = DetectionRadius;
+        CircleShape2D Circle = new CircleShape2D { Radius = DetectionRadius };
+
         GetNode<CollisionShape2D>("PlayerDetectionArea/CollisionShape2D").Shape = Circle;
 
         GetNode<VisibleOnScreenNotifier2D>("VisibleOnScreenNotifier2D").Position = new Vector2(0, -DetectionRadius);
@@ -55,7 +63,7 @@ public partial class Enemies : Area2D
     {
         QueueFree();
         Player.AddScore(GameConstants.ScoreValues[EnemySpecificScoreEnum]);
-
+        GD.Print("Hit");
         if (SpawnPickableOnFree == null) return;
         AddPickable();
     }
@@ -64,7 +72,7 @@ public partial class Enemies : Area2D
         Pickable NewPickable = ResourceBag.PickableScene.Instantiate<Pickable>();
         NewPickable.Initialize(SpawnPickableOnFree.Value);
 
-        GetNode("../../Pickables").CallDeferred(Node2D.MethodName.AddChild.ToString(), NewPickable);
+        Pickables.CallDeferred(Node2D.MethodName.AddChild.ToString(), NewPickable);
         NewPickable.SetDeferred(Node2D.PropertyName.GlobalPosition, GlobalPosition);
     }
     private void OnCollisionWithPlayer(Node2D Body)
@@ -82,7 +90,7 @@ public partial class Enemies : Area2D
         NewBullet.Direction = BulletSpawnLocation.GlobalPosition.DirectionTo(Player.GlobalPosition).Rotated(Inaccuracy);
         NewBullet.SetCollisionMaskValue(2, false);
 
-        GetNode("../../Projectiles").AddChild(NewBullet);
+        Projectiles.AddChild(NewBullet);
         NewBullet.GlobalPosition = BulletSpawnLocation.GlobalPosition;
     }
 }

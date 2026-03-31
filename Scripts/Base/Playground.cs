@@ -1,5 +1,4 @@
 using System;
-using System.Runtime.CompilerServices;
 using Godot;
 
 public partial class Playground : Node2D
@@ -34,9 +33,22 @@ public partial class Playground : Node2D
         LevelContainer.AddChild(MapComponent);
 
         Enemies Ship = SpawnPresetEnemy("Ship", MapComponent);
+
         if (Random.Next(0, 10) < 3){ 
             Enemies Tank = SpawnPresetEnemy("Tank", MapComponent);
             if (Ship.Position.X > Tank.Position.X) Tank.Rotate(2 * (float)Math.PI);
+        }
+
+        Path2D? HelicopterPath = MapComponent.GetNodeOrNull<Path2D>($"SpawnPositions/Helicopter/Path2D");
+        if (HelicopterPath != null){
+            Enemies Helicopter = ResourceBag.EnemyScenes["Helicopter"].Instantiate<Enemies>();
+            PathFollow2D PathFollow = new();
+
+            Path2D HelicopterPathNew = HelicopterPath.Duplicate() as Path2D;
+            EnemyContainer.AddChild(HelicopterPathNew);
+            HelicopterPathNew.GlobalPosition = HelicopterPath.GlobalPosition;
+            HelicopterPathNew.AddChild(PathFollow);
+            PathFollow.AddChild(Helicopter);
         }
 
         BaseMapDefaults.ModularLevelNamesEnum NextMapEnum = MapComponent.NextModularLevels.PickRandom();

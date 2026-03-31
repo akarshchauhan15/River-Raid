@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Godot;
 
 public partial class Playground : Node2D
@@ -32,18 +33,28 @@ public partial class Playground : Node2D
         MapComponent.Position = new Vector2(0, SacrificedPosition.Y - 720 * 3);
         LevelContainer.AddChild(MapComponent);
 
-        Enemies EnemyShip = ResourceBag.EnemyScenes["Ship"].Instantiate<Enemies>();
-        Vector2 RefPosition = (Vector2)MapComponent.GetNode<Node2D>("SpawnPositions/Ship").GetChild(0).Get(Node2D.PropertyName.GlobalPosition);
-
-        int RandomInt = Random.Next(0,10);
-        if (RandomInt < 3)
-        EnemyShip.SpawnPickableOnFree = (Pickable.PickableType) RandomInt; 
-        
-        EnemyContainer.AddChild(EnemyShip);
-        EnemyShip.GlobalPosition = RefPosition;
+        Enemies Ship = SpawnPresetEnemy("Ship", MapComponent);
+        if (Random.Next(0, 10) < 3){ 
+            Enemies Tank = SpawnPresetEnemy("Tank", MapComponent);
+            if (Ship.Position.X > Tank.Position.X) Tank.Rotate(2 * (float)Math.PI);
+        }
 
         BaseMapDefaults.ModularLevelNamesEnum NextMapEnum = MapComponent.NextModularLevels.PickRandom();
         NextMapPackedComponent =  BaseMapDefaults.ModularLevelScenes[(int)NextMapEnum];
+    }
+    private Enemies SpawnPresetEnemy(string EnemyType, BaseMapComponent MapComponent)
+    {
+        Enemies Enemy = ResourceBag.EnemyScenes[EnemyType].Instantiate<Enemies>();
+        Node SpawnPostions = MapComponent.GetNode<Node2D>($"SpawnPositions/{EnemyType}");
+        Vector2 RefPosition = (Vector2)SpawnPostions.GetChildren().PickRandom().Get(Node2D.PropertyName.GlobalPosition);
+        
+        int RandomInt = Random.Next(0,10);
+        if (RandomInt < 3)
+        Enemy.SpawnPickableOnFree = (Pickable.PickableType) RandomInt; 
+        
+        EnemyContainer.AddChild(Enemy);
+        Enemy.GlobalPosition = RefPosition;
+        return Enemy;
     }
     private void SpawnEnemyJets()
     {

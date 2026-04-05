@@ -354,10 +354,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -304.0
-offset_top = -101.5
-offset_right = 304.0
-offset_bottom = 101.5
+offset_left = -266.0
+offset_top = -91.0
+offset_right = 248.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_lqnud")
@@ -372,10 +372,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -640.0
-offset_top = -360.0
-offset_right = 640.0
-offset_bottom = 360.0
+offset_left = -631.0
+offset_top = -334.5
+offset_right = 649.0
+offset_bottom = 385.5
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.627451)
@@ -385,51 +385,51 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -40.0
-offset_top = 28.0
-offset_right = 43.0
-offset_bottom = 51.0
+offset_left = -46.0
+offset_top = 17.0
+offset_right = 47.0
+offset_bottom = 43.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 18
 text = "Exit game?"
+uppercase = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ExitPanel" unique_id=773062641]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -72.5
-offset_top = -2.0
-offset_right = 72.5
-offset_bottom = 38.0
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -73.0
+offset_right = -5.0
+offset_bottom = -1.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 alignment = 1
 
-[node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=491177445]
-custom_minimum_size = Vector2(250, 72)
+[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=1537104552]
+custom_minimum_size = Vector2(250, 64)
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-size_flags_stretch_ratio = 0.0
-theme = ExtResource("2_wgaer")
-shortcut_feedback = false
-shortcut_in_tooltip = false
-text = "NO"
-
-[node name="YesButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=17732317]
-custom_minimum_size = Vector2(250, 72)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme = ExtResource("2_wgaer")
 shortcut_feedback = false
 shortcut_in_tooltip = false
 text = "YES"
+
+[node name="NoButton" type="Button" parent="ExitPanel/HBoxContainer" unique_id=491177445]
+custom_minimum_size = Vector2(250, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("2_wgaer")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "NO"
 
 [node name="MenuSlide" parent="." unique_id=685437201 instance=ExtResource("6_v4pvl")]
 process_mode = 3

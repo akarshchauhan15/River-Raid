@@ -205,8 +205,8 @@ theme_override_fonts/font = ExtResource("4_p2ou8")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/background = SubResource("StyleBoxFlat_60whd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mfj1d")
-max_value = 1.0
-value = 1.0
+max_value = 3.0
+value = 3.0
 
 [node name="CooldownMeter" type="ProgressBar" parent="GameOverlay" unique_id=637176291]
 modulate = Color(1, 1, 1, 0.49019608)

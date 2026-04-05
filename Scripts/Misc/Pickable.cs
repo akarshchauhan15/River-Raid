@@ -32,6 +32,7 @@ public partial class Pickable : Area2D
 
             case PickableType.Health:
                 Player.Health = Math.Min(Player.Health + 1, 3);
+                Player.EmitSignal(Player.SignalName.HealthChanged);
                 return;
 
         }

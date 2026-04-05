@@ -21,17 +21,14 @@ public partial class GameOverlay : Control
 
         ScoreLabel = GetNode<Label>("ScoreLabel");
 
-        Player.ScoreChanged += UpdateScore;
+        Player.ScoreChanged += () => ScoreLabel.Text = Player.Score.ToString();
+        Player.HealthChanged += () => HealthMeter.Value = Player.Health;
         Player.ShotsFired += StartCooldown;
         Player.Pickuped += AddEventHappened;
     }
     public override void _Process(double delta)
     {
         FuelMeter.Value = Player.Fuel;
-    }
-    private void UpdateScore()
-    {
-        ScoreLabel.Text = Player.Score.ToString();
     }
     private void StartCooldown()
     {

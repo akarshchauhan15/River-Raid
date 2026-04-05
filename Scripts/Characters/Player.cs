@@ -7,6 +7,8 @@ public partial class Player : CharacterBody2D
     [Signal]
     public delegate void ScoreChangedEventHandler();
     [Signal]
+    public delegate void HealthChangedEventHandler();
+    [Signal]
     public delegate void ShotsFiredEventHandler();
     [Signal]
     public delegate void PickupedEventHandler(int Type);
@@ -46,6 +48,7 @@ public partial class Player : CharacterBody2D
     public void OnHit()
     {
         Health -= 1;
+        EmitSignal(SignalName.HealthChanged);
     }
     public void AddScore(int Value)
     {
